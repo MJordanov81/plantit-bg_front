@@ -1,0 +1,48 @@
+{
+  "name": "podredeni",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "bootstrap": "^4.1.0",
+    "dotenv": "^6.2.0",
+    "es6-shim": "^0.35.3",
+    "immutable": "^3.8.2",
+    "jquery": "^3.3.1",
+    "multi-select-react": "^0.1.8",
+    "prop-types": "^15.7.2",
+    "react": "^16.5.2",
+    "react-bootstrap": "^0.32.1",
+    "react-checkbox-group": "^4.0.1",
+    "react-confirm-alert": "^2.0.2",
+    "react-dom": "^16.5.2",
+    "react-facebook": "^5.0.3",
+    "react-fb-like": "^0.5.0",
+    "react-player": "^1.6.2",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-rte": "^0.16.1",
+    "react-scripts": "1.1.4",
+    "react-select": "^2.4.2",
+    "react-select-box": "^3.0.1",
+    "react-select-multiple": "0.0.5",
+    "react-sortable-hoc": "^0.8.3",
+    "react-switch": "^4.1.0",
+    "react-toastr": "^3.0.0",
+    "react-youtube": "^7.6.0",
+    "reactjs": "^1.0.0",
+    "reactjs-popup": "^1.3.0",
+    "selectly": "^0.5.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0"
+  },
+  "transpile": "babel src/index.js --out-file src/index-transpiled.js"
+}

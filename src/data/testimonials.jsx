@@ -1,0 +1,55 @@
+const testimonials = [
+	{
+		authorId: 1,
+		name: 'Кирил',
+		lastName: 'Аврамов',
+		age: '41',
+		city: 'Стара Загора',
+		testimonial: 'Супер са! Не мисля къде да оставя и как да запазя очила си.',
+		imageUrl: '',
+		datePosted: '15 Април 2018',
+	},
+	{
+		authorId: 2,
+		name: 'Анелия',
+		lastName: 'Живкова',
+		age: '53',
+		city: 'София',
+		testimonial: 'Практични и удобни - за четене и домакинстване. Откакто открих магнитните клипсове, не мога да се разделя с тях.',
+		imageUrl: '',
+		datePosted: '16 Януари 2018',
+	},
+	{
+		authorId: 3,
+		name: 'Славина',
+		lastName: 'Йорданова',
+		age: '34',
+		city: 'София',
+		testimonial: 'Уникални! Поставих ги на чантата и винаги откривам очилата си!',
+		imageUrl: '',
+		datePosted: '03 Март 2018',
+	},
+	{
+		authorId: 4,
+		name: 'Гинка',
+		lastName: 'Драгоева',
+		age: '63',
+		city: 'Габрово',
+		testimonial: 'Замених “връзките” за очила с далеч по-елегантните и функционални магнитни клипсове.',
+		imageUrl: '',
+		datePosted: '18 Март 2018',
+	},
+	{
+		authorId: 5,
+		name: 'Димитър',
+		lastName: 'Ангелов',
+		age: '38',
+		city: 'София',
+		testimonial: 'Много добро качество - ползвам клипса повече от 1 година магнита е все толкова силен.',
+		imageUrl: '',
+		datePosted: '03 Май 2018',
+	},
+
+];
+
+export default testimonials;
