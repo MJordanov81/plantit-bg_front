@@ -27,9 +27,9 @@ class Home extends React.Component {
 
 				<TopSellers/>
 
-				<AboutProduct/>
+				{/* <AboutProduct/>
 
-				<Testimonials/>
+				<Testimonials/> */}
 
 				<News/>
 

@@ -221,8 +221,8 @@ const PRODUCT = {
 };
 
 const HOME = {
-	topSellers: 'Най-продавани',
-	news: 'Новини'
+	topSellers: 'Последно добавени',
+	news: 'Блог'
 };
 
 const TERMS_AND_CONDITIONS = {

@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { Row, Col, PageHeader, Label } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
 
 import { PRODUCT, CURRENCY } from '../../../../../data/constants/componentConstants';
 
@@ -19,9 +21,13 @@ class ProductInfo extends React.Component {
 						{p.discount > 0 &&
 						<span className="promo-label">-{p.discount}%</span>
 						}
-						{p.name + ' '}
+						{p.name + ' (кат. номер 1' + ('' + p.number).padStart(5, '0') + ')'}
 					</PageHeader>
 					<p>{p.description}</p>
+
+													
+					{p.detailsLink &&
+					<Link className="btn-custom primary md" to={p.detailsLink}>Детайли за продукта</Link>}	
 
 					{p.discount === 0 &&
 					<p>{PRODUCT.price} <span className="price">{p.price.toFixed(2)} {CURRENCY}</span></p>}
@@ -33,6 +39,8 @@ class ProductInfo extends React.Component {
 						<span className="price">{(p.price - p.discount / 100 * p.price).toFixed(2)} {CURRENCY}</span>
 					</p>
 					}
+
+
 
 				</Col>
 			</Row>

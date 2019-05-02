@@ -3,6 +3,7 @@ import React from 'react';
 import { Grid, Row, Col, Image, PageHeader } from 'react-bootstrap';
 import { ToastContainer } from 'react-toastr';
 
+
 import ImageGallery from './partials/ImageGallery';
 import ProductInfo from './partials/ProductInfo';
 import AddToCartForm from './partials/AddToCartForm';
@@ -116,6 +117,8 @@ class Product extends React.Component {
 					</Col>
 					<Col xs={resolution ? 12 : 6} sm={6} md={7}>
 						<ProductInfo data={product}/>
+
+						
 						<AddToCartForm onSubmit={this.addToCart}/>
 					</Col>
 				</Row>
@@ -123,6 +126,8 @@ class Product extends React.Component {
 				{/*<Row>*/}
 					{/*<ProductTabs/>*/}
 				{/*</Row>*/}
+
+					
 			</Grid>
 		);
 	}

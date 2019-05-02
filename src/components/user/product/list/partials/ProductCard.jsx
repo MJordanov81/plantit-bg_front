@@ -82,7 +82,8 @@ class ProductCard extends React.Component {
 
 					<div className="card-body">
 						<h4 className="card-title">{p.name}</h4>
-						<p className="card-text">{p.description.substring(0, 80) + ' ...'}</p>
+						{/* <p className="card-text">{p.description.substring(0, 80) + ' ...'}</p> */}
+						{'1' + ('' + p.number).padStart(5, '0')}
 
 						{p.discount === 0 &&
 							<p className="price">{p.price.toFixed(2)} {CURRENCY}</p>}

@@ -1,7 +1,7 @@
 import React from 'react';
 
 //external components
-import {Grid, Row, Col, Image} from 'react-bootstrap';
+import {Grid, Row, Col, Image, Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
 //services
@@ -53,6 +53,11 @@ class News extends React.Component {
             });
     };
 
+    cancel = () => {
+        //redirect back
+        this.props.history.go(-1);
+    };
+
     handleResolutionChange = () => {
         this.setState({resolution: window.innerWidth})
     };
@@ -72,9 +77,9 @@ class News extends React.Component {
                         <div dangerouslySetInnerHTML={{ __html: this.state.content }} />
 
                         <div className="buttons-container">
-                            <Link className={"btn-custom light md"} to={{pathname: '/news/list'}}>{BUTTONS_BG.back}</Link>
+                            <Button className={"btn-custom light md"} onClick={this.cancel}>{BUTTONS_BG.back}</Button>                          
                         </div>
-
+ 
                     </Col>
                 </Row>
             </Grid>

@@ -14,7 +14,7 @@ class Footer extends React.Component {
                 <div className="wrapper">
 
                     <Link to="/terms" className="terms">{TERMS_AND_CONDITIONS.terms}</Link>
-
+{/* 
                     <div className="social-media-icons">
                         <a className="icon" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/moiteochila/">
                             <i className="fa fa-facebook-official" aria-hidden="true"/>
@@ -22,10 +22,10 @@ class Footer extends React.Component {
                         <a className="icon" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/podredeni.eu">
                             <i className="fa fa-instagram" aria-hidden="true"/>
                         </a>
-                    </div>
+                    </div> */}
 
                     <div className="copy">
-                        <span> &copy; 2018 podredeni.eu</span>
+                        <span> &copy; 2018 Plantit-bg.com</span>
                     </div>
 
                 </div>

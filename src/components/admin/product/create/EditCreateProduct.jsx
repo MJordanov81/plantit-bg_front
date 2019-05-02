@@ -22,6 +22,7 @@ class CreateProduct extends React.Component {
         this.state = {
             name: '',
             description: '',
+            detailsLink: '',
             price: '',
             imageUrls: [],
             isTopSeller: false,
@@ -108,6 +109,7 @@ class CreateProduct extends React.Component {
                 this.setState({
                     name: p.name,
                     description: p.description,
+                    detailsLink: p.detailsLink,
                     price: p.price,
                     imageUrls: p.images.reverse(),
                     isTopSeller: p.isTopSeller,
@@ -294,6 +296,18 @@ class CreateProduct extends React.Component {
                                     name="description"
                                     value={this.state.description}
                                     required={true}
+                                    disabled={false}
+                                    onChange={this.handleChange}/>
+                            </Col>
+                        </Row>
+
+                        <Row>
+                            <Col md={5} sm={8}>
+                                <FormTextareaField
+                                    label="Детайли"
+                                    name="detailsLink"
+                                    value={this.state.detailsLink}
+                                    required={false}
                                     disabled={false}
                                     onChange={this.handleChange}/>
                             </Col>

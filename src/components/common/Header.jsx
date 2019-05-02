@@ -132,7 +132,7 @@ class Header extends React.Component {
 			<nav className="navbar navbar-default navbar-fixed-top" id="main-menu">
 
 				<div className="navbar-brand">
-					<Link to="/home">Podredeni</Link>
+					<Link to="/home">Plant It</Link>
 				</div>
 
 				<button type="button"
@@ -146,7 +146,7 @@ class Header extends React.Component {
 					<span className="icon-bar"/>
 				</button>
 
-				<div className="social-media-icons hidden-xs">
+				{/* <div className="social-media-icons hidden-xs">
 					<a className="icon" target="_blank" rel="noopener noreferrer"
 					   href="https://www.facebook.com/moiteochila/">
 						<i className="fa fa-facebook-official" aria-hidden="true"/>
@@ -155,7 +155,7 @@ class Header extends React.Component {
 					   href="https://www.instagram.com/podredeni.eu">
 						<i className="fa fa-instagram" aria-hidden="true"/>
 					</a>
-				</div>
+				</div> */}
 
 				<div id="user-nav" className="collapse navbar-collapse">
 
@@ -170,16 +170,16 @@ class Header extends React.Component {
 						</NavLink>
 
 						<NavLink to="/news/list" activeClassName="active" className='nav-link'>
-							Новини
+							Блог
 						</NavLink>
 
-						<NavLink to="/videos" activeClassName="active" className='nav-link'>
+						{/* <NavLink to="/videos" activeClassName="active" className='nav-link'>
 							Видео
-						</NavLink>
-
+						</NavLink> */}
+{/* 
 						<NavLink to="/partners" activeClassName="active" className='nav-link'>
 							Партньори
-						</NavLink>
+						</NavLink> */}
 
 						<NavLink to="/contact" activeClassName="active" className='nav-link'>
 							Контакт
@@ -198,12 +198,12 @@ class Header extends React.Component {
 							}
 						</NavLink>
 
-						<div className="social-media-icons visible-xs">
+						{/* <div className="social-media-icons visible-xs">
 							<a className="icon" target="_blank" rel="noopener noreferrer"
 							   href="https://www.facebook.com/moiteochila/">
 								<i className="fa fa-facebook-official" aria-hidden="true"/>
 							</a>
-						</div>
+						</div> */}
 					</ul>
 				</div>
 

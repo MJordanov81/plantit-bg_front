@@ -72,6 +72,7 @@ function generateProductDetails (state) {
 	return {
 		Name: state.name,
 		Description: state.description,
+		DetailsLink: state.detailsLink,
 		Price: state.price,
 		ImageUrls: state.imageUrls,
 		IsTopSeller: state.isTopSeller,
