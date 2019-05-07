@@ -8,19 +8,11 @@
     -webkit-flex-basis: 50%;
     flex-basis: 50%; } }
 @media screen and (max-width: 1000px) {
-  #home #home-main-carousel .carousel {
-    height: 400px;
-    margin-top: -35px; }
-    #home #home-main-carousel .carousel .carousel-caption {
-      position: absolute;
-      top: 0;
-      left: 13%;
-      width: 450px; }
-      #home #home-main-carousel .carousel .carousel-caption .carousel-heading {
-        font-size: 2.5em;
-        line-height: 1em; }
-      #home #home-main-carousel .carousel .carousel-caption .carousel-text {
-        font-size: 1.1em; }
+  #home #home-main-carousel .carousel .carousel-caption .carousel-heading {
+    font-size: 2.5em;
+    line-height: 1em; }
+  #home #home-main-carousel .carousel .carousel-caption .carousel-text {
+    font-size: 1.1em; }
 
   .section-heading {
     letter-spacing: 5px;
@@ -42,9 +34,6 @@
     -webkit-flex-basis: 60%;
     flex-basis: 60%; } }
 @media screen and (max-width: 768px) {
-  main {
-    padding-top: 80px; }
-
   h1 {
     font-size: 1.6em;
     margin: 25px 0 12px 0; }
@@ -72,15 +61,7 @@
     order: 1;
     padding: 25px 50px;
     height: auto; }
-  #home #home-main-carousel .logo {
-    position: absolute;
-    top: 2%;
-    left: 13%;
-    width: 15%;
-    min-width: 120px;
-    z-index: 100; }
   #home #home-main-carousel .carousel .carousel-caption {
-    top: 28%;
     width: 75% !important; }
 
   #cart #cart-products-table .table-header .sum {
@@ -178,7 +159,9 @@
 
   #admin-products-table td:last-child, #admin-products-table .table th:last-child,
   #admin-orders-table td:last-child,
-  #admin-orders-table .table th:last-child {
+  #admin-orders-table .table th:last-child,
+  #admin-categories-table td:last-child,
+  #admin-categories-table .table th:last-child {
     padding-right: 4px; }
 
   #orders .order-info {
@@ -187,6 +170,9 @@
     -webkit-transform: translate(-50%, 0);
     -ms-transform: translate(-50%, 0);
     transform: translate(-50%, 0); }
+
+  main {
+    padding-top: 80px; }
 
   nav .navbar-brand {
     height: auto;
@@ -222,8 +208,12 @@
       margin-top: -5px; }
   nav #user-nav,
   nav #admin-nav {
-    position: absolute;
-    top: 62px; }
+    top: 61px;
+    background-color: rgba(41, 51, 27, 0.95);
+    border-color: #1b2210; }
+    nav #user-nav .nav,
+    nav #admin-nav .nav {
+      margin: 5px 0; }
   nav .navbar-collapse {
     width: 100%;
     border-color: #e7e7e7;
@@ -293,9 +283,6 @@
     #admin-nav .nav .nav-link:last-child {
       margin-top: 25px; }
 
-  #home #home-main-carousel .carousel {
-    height: 300px;
-    margin-top: -35px; }
   #home #home-main-carousel .carousel-caption {
     width: 85% !important; }
     #home #home-main-carousel .carousel-caption .carousel-heading {
@@ -348,10 +335,6 @@
 @media screen and (max-width: 400px) {
   .text-hidden-xs {
     display: none; }
-
-  #home #home-main-carousel .carousel {
-    height: 250px;
-    margin-top: -35px; }
 
   nav {
     -webkit-box-align: start;

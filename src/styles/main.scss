@@ -16,19 +16,16 @@ body {
   padding: 0;
   position: relative;
   min-height: 100vh;
-  color: $dark-grey;
-  //background-color: #f0f0f0;
+  color: $bg-dark;
   font-family: Montserrat, sans-serif;
   font-size: 14px;
 }
 
 main {
-  //margin-top: $header-height;
   min-height: calc(100vh - 80px);
-
-  padding-top: 193px;
-  padding-bottom: 50px;
-  background-color: $warm-light-grey;
+  padding-bottom: 100px;
+  padding-top: 60px;
+  background-color: $bg-light;
 }
 
 .container-fluid {
@@ -154,6 +151,20 @@ input[type=checkbox], input[type=radio] {
   margin-bottom: 5px;
   @include transition;
 
+  &.btn-product-details {
+    background-color: $green-line;
+    color: $default;
+    padding: 10px 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+
+    &:hover{
+      @include transition;
+      background-color: $bg-dark;
+    }
+  }
+
   &:last-child {
     margin-right: 0;
   }
@@ -266,12 +277,13 @@ input[type=checkbox], input[type=radio] {
   background-color: $white;
 }
 
-.bg-dark {
-  background-color: $dark-bg;
-}
 
 .bg-light-grey {
   background-color: $light-grey;
+}
+
+.section-accent {
+  background-color: $section-accent;
 }
 
 .bg-medium-grey {
@@ -279,19 +291,14 @@ input[type=checkbox], input[type=radio] {
 }
 
 .section-heading {
-  text-align: center;
-  font-size: 3em;
-  padding: 25px 15px;
-  border-top: 1px solid $warm-light-grey;
-  border-bottom: 1px solid $warm-light-grey;
-  text-transform: uppercase;
-  font-weight: 200;
-  letter-spacing: 8px;
-  color: $primary;
+  font-size: 2em;
+  color: $bg-dark;
 }
 
 #main-menu {
-  @include transition;
+  //@include transition;
+  background-color: $bg-dark;
+  border: none;
 }
 
 nav {
@@ -318,21 +325,36 @@ nav {
   }
 
   &.navbar-default {
-    background-image: none;
-    background-color: rgba(255, 255, 255, 1);
+
+    border-color: $bg-light;
 
     border-radius: 0;
+    margin-bottom: 0;
     -webkit-box-shadow: none;
     box-shadow: none;
   }
 
+  &.small {
+    @include flex-direction(row);
+    margin-bottom: 20px;
+
+    .navbar-brand {
+      margin: 15px;
+      color: #50670e !important;
+    }
+
+    #user-nav {
+      @include flex-grow(1);
+
+      padding-top: 15px;
+    }
+  }
+
   .navbar-brand {
-    font-weight: 300;
-    font-size: 150%;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    border: 1px solid $medium-grey;
+    font-weight: 700;
+    font-size: 4em;
     margin: 15px auto 15px auto;
+    color: #50670e !important;
 
     &.admin {
       margin: 15px;
@@ -358,6 +380,7 @@ nav {
     .nav {
       @include flex;
       @include align-items(center);
+      margin-bottom: 15px;
 
       .nav-link {
         @include flex;
@@ -367,10 +390,13 @@ nav {
         letter-spacing: .3px;
         text-decoration: none;
         font-size: .9em;
+        color: $bg-light;
         @include transition;
+        border-radius: 26px;
 
         &.active {
           color: $primary;
+          background-color: $dark-accent;
         }
       }
     }
@@ -389,6 +415,7 @@ nav {
         letter-spacing: .3px;
         text-decoration: none;
         font-size: .8em;
+        color: $bg-light;
         border-radius: 5px;
         margin-right: 2px;
         @include transition;
@@ -417,34 +444,15 @@ nav {
 
   #home-main-carousel {
     position: relative;
-
-    .logo {
-      position: absolute;
-      top: 3%;
-      right: 5%;
-      width: 15%;
-      min-width: 150px;
-      z-index: 100;
-    }
+    margin-top: -60px;
 
     .carousel {
-      height: 550px;
-      margin-top: -35px;
 
       .carousel-inner {
-        height: 100%;
         position: relative;
 
-        .item {
-          height: 100%;
-          width: auto;
-        }
-
         .carousel-img {
-          width: auto !important;
-          height: auto;
-          min-height: 100%;
-
+          object-fit: cover;
           filter: brightness(80%);
         }
       }
@@ -453,7 +461,6 @@ nav {
         position: absolute;
         top: 10%;
         left: 13%;
-        //width: 40%;
         width: 550px;
 
         padding-top: 20px;
@@ -469,7 +476,6 @@ nav {
           font-size: 3em;
           line-height: 1.1em;
           color: #fff;
-          //text-transform: uppercase;
           font-weight: 600;
         }
 
@@ -584,17 +590,6 @@ nav {
     }
   }
 
-  #home-news {
-    .container {
-      padding-top: 25px;
-    }
-
-    .news-card {
-      .news-date {
-        //background-color: $warm-light-grey;
-      }
-    }
-  }
 }
 
 #testimonials {
@@ -659,11 +654,9 @@ nav {
 
   position: relative;
 
-  padding: 25px;
   margin-bottom: 20px;
-  background-color: $white;
-  border: 1px solid transparent;
-
+  background-color: $dark-accent;
+  color: $bg-light;
   text-align: center;
 
   @include transition;
@@ -671,19 +664,9 @@ nav {
   &:hover,
   &:active,
   &:focus {
-    border: 1px solid $light-grey;
 
-    .product-image {
-      transform: translateY(-20px);
-      @include transition;
-    }
-
-    .price {
-      color: $primary;
-    }
-
-    .add-to-cart-btn {
-      background-color: $primary;
+    .card-img-top {
+      transform: scale(1.1);
     }
   }
 
@@ -710,27 +693,30 @@ nav {
 
   .product-image {
     width: 100%;
-    height: 200px;
-    overflow: hidden;
     @include transition;
+    overflow: hidden;
 
     .card-img-top {
-      height: 90%;
-      width: auto;
-      border-bottom: 1px solid transparent;
+      object-fit: contain;
+      @include transition;
     }
   }
 
   .card-body {
     width: 100%;
+    padding: 5px 5px 15px 5px;
   }
 
   .card-title {
     font-size: 1.1em;
-    height: 35px;
-    //text-transform: uppercase;
-    //letter-spacing: 1px;
     line-height: 1.1em;
+  }
+
+  .item-number {
+    opacity: .5;
+    //color: $green-line;
+    font-style: italic;
+    font-size: .85em;
   }
 
   .card-text {
@@ -766,11 +752,11 @@ nav {
 
   .add-to-cart-btn {
     display: inline-block;
-    padding: 5px 10px;
+    padding: 5px 38px;
     height: 30px;
     @include transition;
-    background-color: $light-grey;
-    color: $white;
+    background-color: $green-line;
+    color: $primary;
     z-index: 3000;
     margin-right: 5px;
 
@@ -784,22 +770,13 @@ nav {
 .top-seller-card {
   width: 300px;
   display: inline-block;
-  padding: 25px;
   margin: 5px 25px;
 
-  &:hover {
-    border: 1px solid transparent;
-
-    .price {
-
-      color: $white;
-      background-color: $primary;
-    }
-  }
 
   .price {
     font-size: 1.3em;
     display: inline-block;
+    padding: 0;
   }
 }
 
@@ -813,32 +790,32 @@ nav {
 #news-container {
 
   .news-card {
-    min-height: 303px;
-    margin: 10px 0 20px 0;
+    @include flex;
+    margin-bottom: 15px;
+    @include transition;
 
-    background-color: $white;
+    &:hover {
+      .news-body {
+        background-color: $white;
+      }
+    }
+
 
     .news-image-container {
-      @include flex-basis(100%);
-
-      @include flex();
-      @include align-items(center);
-      @include justify-content(center);
-
-      margin: auto;
-      width: 100%;
-      height: 200px;
+      @include flex-basis(30%);
+      height: auto;
       overflow: hidden;
 
       .news-image {
-        width: 100%;
-        @include transition;
+        object-fit: cover;
+        min-height: 100%;
       }
     }
 
     .news-body {
-      position: relative;
-      padding: 10px 25px;
+      @include flex-basis(70%);
+      @include transition;
+      padding: 5px 15px;
 
       .news-title {
         font-size: 1em;
@@ -847,18 +824,11 @@ nav {
 
       .news-date {
         font-size: .9em;
-        color: $medium-grey;
+        color: $default-hover;
+      }
 
-        .day {
-          //display: block;
-          //font-size: 1.5em;
-          //line-height: .85em;
-          //font-weight: 600;
-        }
-
-        .month, .year {
-          //font-size: .8em;
-        }
+      .news-content {
+        font-size: .85em;
       }
     }
 
@@ -874,17 +844,8 @@ nav {
     &:hover {
       cursor: pointer;
 
-      //.news-date {
-      //  background-color: $primary;
-      //  color: $white;
-      //}
-
       .news-title {
         color: $primary;
-      }
-
-      .news-image {
-        transform: scale(1.1);
       }
     }
   }
@@ -892,15 +853,29 @@ nav {
 
 // Products List
 #products {
+
+  aside {
+    background-color: $bg-dark;
+    color: $bg-light;
+  }
+
   .filters-container {
 
-    background-color: $white;
+    //background-color: $white;
     padding: 15px;
     margin-bottom: 12px;
-    border-radius: 5px;
+    border-top: 1px solid $green-line;
+
+
+    .category-name {
+      font-size: 1em;
+      color: $primary;
+    }
 
     .category {
       position: relative;
+      padding: 2px 0;
+
 
       &.disabled {
         //pointer-events: none;
@@ -973,6 +948,13 @@ nav {
     font-size: .5em;
     font-weight: 600;
     z-index: 5;
+  }
+
+  .badge {
+    background-color: $green-line;
+    margin-left: 15px;
+    font-weight: 600;
+    padding: 5px 10px;
   }
 
   .price {

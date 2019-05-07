@@ -25,7 +25,7 @@ class Footer extends React.Component {
                     </div> */}
 
                     <div className="copy">
-                        <span> &copy; 2018 Plantit-bg.com</span>
+                        <span> &copy; 2019 Plantit-bg.com</span>
                     </div>
 
                 </div>

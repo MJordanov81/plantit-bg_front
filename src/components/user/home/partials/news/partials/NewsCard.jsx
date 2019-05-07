@@ -21,7 +21,7 @@ class NewsCard extends React.Component {
 
 			<Link to={'/news/' + data.id}>
 
-				<Col xs={this.props.xsRes} sm={6} md={4} lg={4} className="news-card">
+				<Col xs={this.props.xsRes} sm={6} md={6}  className="news-card">
 
 					<div className="news-image-container">
 						<img className="news-image" src={data.imageUrl} alt="News image"/>
@@ -34,6 +34,7 @@ class NewsCard extends React.Component {
 							<span className="month">{Utils.getMonth(date)} &nbsp;</span>
 							<span className="year">{Utils.getYear(date)}</span>
 						</p>
+						<div className="news-content" dangerouslySetInnerHTML={{ __html: data.content }} />
 					</div>
 				</Col>
 

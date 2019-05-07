@@ -37,8 +37,8 @@ class ProductsList extends React.Component {
 
             size: 50,
             page: 1,
-            sortProperty: 'number',
-            descending: true,
+            sortProperty: 'name',
+            descending: false,
             filterProperty: 'name',
             filterValue: '',
 
@@ -182,7 +182,6 @@ class ProductsList extends React.Component {
 
             let catStyle = this.state.subcategories.matched.map(e => e.id).includes(sc.id) ? 'category' : 'category invisible';
 
-            
 
             let style = this.state.subcategories.selected.includes(sc.id) ? 'check-box selected' : 'check-box';
 
@@ -197,40 +196,39 @@ class ProductsList extends React.Component {
 
 
         return (
-            <Grid id="products">
+            <div id="products" className="container-fluid">
 
                 <ToastContainer
                     ref={ref => this.toastContainer = ref}
-                    className="toast-bottom-right"
-                />
+                    className="toast-bottom-right"/>
 
 
-                <Row>
-                    <Col xs={2}>
+                    <Col xs={12} md={3} lg={2}>
                         <aside>
                             <div className="filters-container">
-                                <h4>{LABELS_BG.category}</h4>
+                                <h4 className="category-name">{LABELS_BG.category}</h4>
                                 {categories}
                             </div>
 
                             <div className="filters-container">
-                                <h4>{LABELS_BG.subcategory}</h4>
+                                <h4 className="category-name">{LABELS_BG.subcategory}</h4>
                                 {subCategories}
                             </div>
                         </aside>
                     </Col>
 
-                    <Col xs={10}>
 
-                        {this.state.filtering &&
-                        <div className="loader"/>
-                        }
-                        {!this.state.filtering &&
-                        productsList
-                        }
+                    <Col xs={9}  md={9} lg={10}>
+                        <Row>
+                            {this.state.filtering &&
+                            <div className="loader"/>
+                            }
+                            {!this.state.filtering &&
+                            productsList
+                            }
+                        </Row>
                     </Col>
-                </Row>
-            </Grid>
+            </div>
         );
     }
 }

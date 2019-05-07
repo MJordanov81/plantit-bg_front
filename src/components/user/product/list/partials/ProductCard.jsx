@@ -64,7 +64,7 @@ class ProductCard extends React.Component {
 		const p = this.props.data;
 
 		return (
-			<Col xs={this.state.xsRes} sm={6} md={4} lg={4}>
+			<Col xs={this.state.xsRes} sm={6} md={4} lg={3}>
 
 				<div className="card">
 
@@ -83,7 +83,7 @@ class ProductCard extends React.Component {
 					<div className="card-body">
 						<h4 className="card-title">{p.name}</h4>
 						{/* <p className="card-text">{p.description.substring(0, 80) + ' ...'}</p> */}
-						{'1' + ('' + p.number).padStart(5, '0')}
+						<p className="item-number">{'# 1' + ('' + p.number).padStart(5, '0')}</p>
 
 						{p.discount === 0 &&
 							<p className="price">{p.price.toFixed(2)} {CURRENCY}</p>}

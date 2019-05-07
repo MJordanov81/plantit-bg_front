@@ -120,7 +120,7 @@ class TopSellers extends React.Component {
 		let translateMaxValue = (this.state.products.length - this.state.productsToShow ) * this.state.cardWidth;
 
 		return (
-			<Grid fluid id="top-sellers" className="bg-white">
+			<Grid fluid id="top-sellers" className="section-accent">
 				<Grid>
 
 					<h1 className="section-heading">{HOME.topSellers}</h1>

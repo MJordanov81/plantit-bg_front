@@ -6,7 +6,7 @@ class OrderReceived4 extends React.Component {
 		return (
 			<div className="container">
 				<h1>Вашата поръчка е приета за обработка.</h1>
-				<h4>Ще получите обаждане за потвърждение.</h4>
+				<h4>Ще получите e-mail за потвърждение.</h4>
 			</div>
 		);
 	}
