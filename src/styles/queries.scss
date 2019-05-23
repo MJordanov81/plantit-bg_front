@@ -24,6 +24,15 @@
 
 @media screen and (max-width: 1000px) {
 
+  //main {
+  //  padding-top: 10px;
+  //}
+
+  aside {
+    margin-top:-10px;
+
+  }
+
   #home {
     #home-main-carousel {
       .carousel {
@@ -58,6 +67,20 @@
   #orders {
     .order-info {
       width: 80%;
+    }
+  }
+
+  #products {
+    .filters-container {
+      .category {
+        display: inline-block;
+        margin-right: 15px;
+        margin-bottom: 10px;
+
+        .check-box {
+          margin-right: 3px;
+        }
+      }
     }
   }
 }
@@ -347,7 +370,6 @@
 
 @media screen and (max-width: 650px) {
 
-
   nav {
     .navbar-collapse {
       width: 100%;
@@ -364,6 +386,7 @@
       .nav-link {
         color: $medium-grey;
         border-bottom: 1px solid rgba(255, 255, 255, .1);
+        margin-bottom: 10px;
 
         &:last-child {
           border-bottom: none;
@@ -429,6 +452,14 @@
 }
 
 @media screen and (max-width: 520px) {
+
+  main {
+    padding-top: 80px;
+  }
+
+  #home-main-carousel {
+    display: none !important;
+  }
 
   #cart {
     #cart-products-table {
@@ -505,6 +536,17 @@
       li {
         margin: 10px 15px;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+
+  #news-container .news-card {
+    flex-direction: column;
+
+    .news-image-container {
+      height: 425px;
     }
   }
 }

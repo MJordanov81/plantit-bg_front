@@ -704,7 +704,8 @@ nav {
     overflow: hidden; }
     #news-container .news-card .news-image-container .news-image {
       object-fit: cover;
-      min-height: 100%; }
+      min-height: 100%;
+      max-height: 100px; }
   #news-container .news-card .news-body {
     -webkit-flex-basis: 70%;
     flex-basis: 70%;

@@ -73,11 +73,13 @@ class ProductCard extends React.Component {
                     }
 
 
-                    <Link to={'/products/' + p.id} className="product-image">
-
-                        <img className="card-img-top" src={p.images[0]} alt="Card image cap"/>
-
+                    {p.id &&
+                    <Link to={'/products/' + p.id}>
+                        <div className="product-image">
+                            <img className="card-img-top" src={p.images[0]} alt="Card image cap"/>
+                        </div>
                     </Link>
+                    }
 
 
                     <div className="card-body">

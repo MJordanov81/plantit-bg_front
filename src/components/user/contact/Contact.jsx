@@ -108,10 +108,9 @@ class Contact extends React.Component {
 					className="toast-bottom-right"
 				/>
 
-				<p className="text-center">
-					{/*<strong>Армоник ООД</strong> е вносител на американските магнитни клипсове.<br/>*/}
-					{/*адрес: гр. София, бул. Цар Борис III, 91<br/>*/}
-					{/*тел. 0888 170 767*/}
+				<p className="">
+					Телефон за връзка: 0884 700515 <br/>
+					Email: office@plantit-bg.com
 				</p>
 				<hr/>
 
