@@ -10,6 +10,7 @@ import ProductTableRow from './partials/ProductTableRow';
 import Paging from '../../../common/pagination/Paging';
 import FormSelectField from '../../../common/formComponents/FormSelectField';
 import FormInputWithDropdown from '../../../common/formComponents/FormInputWithDropdown';
+import ProductMovementsTable from './partials/ProductMovementsTable'
 
 import productsService from '../../../../services/products/productsService';
 

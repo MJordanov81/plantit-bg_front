@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import { Label } from 'react-bootstrap';
+import { Label, Button } from 'react-bootstrap';
 
 class ProductTableRow extends React.Component {
 	constructor (props) {
@@ -21,6 +21,11 @@ class ProductTableRow extends React.Component {
 				</td>
 				<td className="text-right">
 					<p className="price"> {p.price.toFixed(2)}</p>
+				</td>
+				<td className="text-center">
+					<Link to={'/product/movements/' + p.id}>
+						{p.quantity}
+					</Link>
 				</td>
 				<td>
 					{p.isTopSeller &&

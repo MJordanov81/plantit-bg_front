@@ -35,6 +35,8 @@ import Cart from '../user/cart/Cart';
 import CreateProduct from '../admin/product/create/EditCreateProduct';
 import AdminProductsList from '../admin/product/list/ProductsList';
 
+import ProductMovementsTable from '../admin/product/list/partials/ProductMovementsTable';
+
 // Admin Promos
 import AdminPromosList from '../admin/promo/list/PromosList';
 import EditCreateDiscountPromo from '../admin/promo/discountPromo/EditCreateDiscountPromo';
@@ -102,6 +104,8 @@ let Routes = () => {
 			<PrivateRoute path='/product/create' component={CreateProduct}/>
 			<PrivateRoute path='/product/edit/:id' component={CreateProduct}/>
 			<PrivateRoute path='/product/list' component={AdminProductsList}/>
+
+			<PrivateRoute path='/product/movements/:id' component={ProductMovementsTable}/>
 
 			<PrivateRoute path='/category/list' component={CategoriesList}/>
 

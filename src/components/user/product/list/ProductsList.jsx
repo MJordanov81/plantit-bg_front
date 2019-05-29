@@ -35,7 +35,7 @@ class ProductsList extends React.Component {
             categories: new FilterObject(),
             subcategories: new FilterObject(),
 
-            size: 50,
+            size: 1000,
             page: 1,
             sortProperty: 'name',
             descending: false,
@@ -96,6 +96,8 @@ class ProductsList extends React.Component {
         productsService
             .loadProducts(this.state)
             .then(res => {
+
+                console.log(res);
 
                 res.products.forEach(e => e.images.reverse());
                 this.setState({

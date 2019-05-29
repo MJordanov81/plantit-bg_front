@@ -289,6 +289,14 @@ const PARTNER_CATEGORIES = {
 	fishing: 'лов и риболов'
 };
 
+const PRODUCT_MOVEMENTS = {
+	0: "Покупка",
+	1: "Покупка корекция",
+	2: "Продажба",
+	3: "Продажба корекция",
+	4: "Положителна корекция",
+	5: "Отрицателна корекция"
+};
 
 export {
 	FILTER_INPUT_WAIT_INTERVAL,
@@ -321,6 +329,7 @@ export {
 	NEWS,
 	PARTNERS,
 	PARTNER_CATEGORIES,
-    LOREM_IPSUM
+    LOREM_IPSUM,
+	PRODUCT_MOVEMENTS
 };
 

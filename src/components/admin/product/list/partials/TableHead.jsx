@@ -29,6 +29,9 @@ class TableHead extends React.Component {
 						sort={this.props.sort}/>
 				</th>
 				<th className="text-center">
+					<i className="fa fa-plus" aria-hidden="true" />
+				</th>
+				<th className="text-center">
 					<i className="fa fa-diamond" aria-hidden="true" />
 				</th>
 				<th className="text-center">

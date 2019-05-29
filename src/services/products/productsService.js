@@ -32,6 +32,22 @@ export default {
 			.get(endPoint, null, query);
 	},
 
+	loadMovements: (productId) => {
+		let endPointId = endPoint + `/movement/${productId}`;
+
+		return requesterService
+			.get(endPointId, auth);
+	},
+
+	addMovement: (state) => {
+		let movement = generateMovementDetails(state);
+
+		let currentEndPoint = endPoint + '/movement';
+
+		return requesterService
+			.post(currentEndPoint, auth, movement);
+	},
+
 	addProduct: (state) => {
 
 		let product = generateProductDetails(state);
@@ -81,3 +97,14 @@ function generateProductDetails (state) {
 	};
 }
 
+function generateMovementDetails (state) {
+
+
+	return {
+		Comment: state.comment,
+		Quantity: state.quantity,
+		TimeStamp: state.timeStamp,
+		MovementType: state.movementType,
+		ProductId: state.product.id
+	};
+}
