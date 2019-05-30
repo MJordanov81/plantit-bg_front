@@ -4,7 +4,9 @@ import {withRouter} from 'react-router-dom';
 
 import {Col} from 'react-bootstrap';
 
+//services
 import utils from '../../../../../utils/utils'
+import settingsService from '../../../../../services/settings/settingsService'
 
 import {TOASTR_MESSAGES, CURRENCY} from '../../../../../data/constants/componentConstants';
 
@@ -63,6 +65,9 @@ class ProductCard extends React.Component {
     render() {
         const p = this.props.data;
 
+        let showOutOfStockSetting = this.props.showOutOfStock;
+        let showOutOfStockLabel = p.quantity <= 0 && showOutOfStockSetting;
+
         return (
             <Col xs={this.state.xsRes} sm={6} md={4} lg={3}>
 
@@ -84,22 +89,26 @@ class ProductCard extends React.Component {
 
                     <div className="card-body">
                         <h4 className="card-title">{p.name}</h4>
-                        {/* <p className="card-text">{p.description.substring(0, 80) + ' ...'}</p> */}
                         <p className="item-number">{'# 1' + ('' + p.number).padStart(5, '0')}</p>
 
-                        {p.discount === 0 &&
+                        {showOutOfStockLabel && p.quantity <= 0 &&
+                        <p className="price">Изчерпан</p>}
+
+                        {!showOutOfStockLabel && p.discount === 0 &&
                         <p className="price">{p.price.toFixed(2)} {CURRENCY}</p>}
 
-                        {p.discount > 0 &&
+                        {!showOutOfStockLabel && p.discount > 0 &&
                         <p className="price">
                             <span className="old-price">{p.price.toFixed(2)} {CURRENCY}</span>
                             <span>{(utils.calculatePriceAfterDiscount(p.price, p.discount)).toFixed(2)} {CURRENCY}</span>
                         </p>
                         }
 
+                        {!showOutOfStockLabel &&
                         <button className="add-to-cart-btn" onClick={this.addToCart}>
                             <i className="fa fa-shopping-cart" aria-hidden="true"/>
                         </button>
+                        }
 
                         <Link to={'/products/' + p.id} className="add-to-cart-btn">
                             <i className="fa fa-search" aria-hidden="true"/>

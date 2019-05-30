@@ -12,6 +12,7 @@ import ProductTabs from './partials/ProductTabs';
 import productsService from '../../../../services/products/productsService';
 
 import { RESOLUTIONS, TOASTR_MESSAGES } from '../../../../data/constants/componentConstants';
+import settingsService from "../../../../services/settings/settingsService";
 
 class Product extends React.Component {
 	constructor (props) {
@@ -100,6 +101,9 @@ class Product extends React.Component {
 		let product = this.state.product;
 		let resolution = this.state.resolution < RESOLUTIONS.xs;
 
+		let showOutOfStock = settingsService.getCurrentSetting('ShowOutOfStock');
+
+		let doNotShowAddToCart =  showOutOfStock && product.quantity <= 0;
 
 		return (
 			<Grid id="product">
@@ -119,7 +123,8 @@ class Product extends React.Component {
 						<ProductInfo data={product}/>
 
 						
-						<AddToCartForm onSubmit={this.addToCart}/>
+						{!doNotShowAddToCart &&
+						<AddToCartForm onSubmit={this.addToCart}/>}
 					</Col>
 				</Row>
 				}

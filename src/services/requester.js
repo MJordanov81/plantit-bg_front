@@ -42,8 +42,13 @@ export default {
             {
                 url: url,
                 type: 'GET',
-                headers: createHeader(auth)
-            });
+                headers: createHeader(auth),
+
+            }).done(function(response, textStatus, xhr){
+            var settingsHeader = xhr.getResponseHeader("ApiSettings");
+
+            sessionStorage.setItem('apiSettings', settingsHeader);
+        });
     },
 
     remove: (endPoint, auth) => {

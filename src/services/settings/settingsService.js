@@ -1,4 +1,5 @@
 import requesterService from '../requester';
+
 const endPoint = '/settings';
 const auth = 'admin';
 
@@ -7,6 +8,13 @@ export default {
     load: () => {
 
         return requesterService.get(endPoint, null);
+    },
+
+    getCurrentSetting: (settingName) => {
+
+        var apiSettings = JSON.parse(sessionStorage.getItem('apiSettings'));
+
+        return apiSettings[settingName];
     },
 
     edit: (state) => {
@@ -22,8 +30,8 @@ export default {
 
 function generateSettingsDetails(state) {
 
-	return {
-		ShowOutOfStock: state.showOutOfStock
-	};
+    return {
+        ShowOutOfStock: state.showOutOfStock
+    };
 }
 
