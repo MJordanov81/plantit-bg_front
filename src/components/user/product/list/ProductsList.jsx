@@ -16,6 +16,7 @@ import categoryService from '../../../../services/categories/categoryService';
 // Constants
 import {RESOLUTIONS} from '../../../../data/constants/componentConstants';
 import {LABELS_BG} from '../../../../data/constants/componentConstants';
+import settingsService from "../../../../services/settings/settingsService";
 
 class FilterObject {
     constructor() {
@@ -97,8 +98,6 @@ class ProductsList extends React.Component {
             .loadProducts(this.state)
             .then(res => {
 
-                console.log(res);
-
                 res.products.forEach(e => e.images.reverse());
                 this.setState({
                     products: res.products,
@@ -112,7 +111,7 @@ class ProductsList extends React.Component {
                 let subcategories = Object.assign({}, this.state.subcategories);
                 subcategories.matched = res.subcategories;
 
-                this.setState({categories, subcategories}, () => console.log(this.state));
+                this.setState({categories, subcategories});
 
             })
             .catch(err => {
@@ -149,6 +148,8 @@ class ProductsList extends React.Component {
 
     render() {
 
+        let showOutOfStock = settingsService.getCurrentSetting('ShowOutOfStock');
+
         if (this.state.loading) return <div className='loader'/>;
 
 
@@ -157,6 +158,7 @@ class ProductsList extends React.Component {
         let productsList = this.state.products.map(e => {
             return <ProductCard key={e.id}
                                 data={e}
+                                showOutOfStock={showOutOfStock}
                                 toastContainer={this.toastContainer}
                                 xsRes={resolution ? 12 : 6}/>;
         });

@@ -159,7 +159,7 @@ input[type=checkbox], input[type=radio] {
     margin-bottom: 15px;
     border-radius: 15px;
 
-    &:hover{
+    &:hover {
       @include transition;
       background-color: $bg-dark;
     }
@@ -705,6 +705,12 @@ nav {
   .card-body {
     width: 100%;
     padding: 5px 5px 15px 5px;
+
+    .out-of-stock-label {
+      background-color: red;
+      margin: 10px 0 20px 0;
+      padding: 2px 10px 2px 10px;
+    }
   }
 
   .card-title {
@@ -1118,6 +1124,7 @@ nav {
       font-size: 1.2em;
       margin-bottom: 0;
     }
+
     .category {
       font-size: .9em;
       font-style: italic;
@@ -1502,6 +1509,7 @@ nav {
             height: 50px;
           }
         }
+
         .product-data {
           .quantity-col {
             .quantity {
@@ -1524,6 +1532,7 @@ nav {
     margin: 35px 10% 0 10%;
     font-weight: 600;
   }
+
   ol {
     margin: 15px 10% 80px 10%;
 
