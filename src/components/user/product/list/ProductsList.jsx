@@ -46,7 +46,7 @@ class ProductsList extends React.Component {
             resolution: window.innerWidth,
 
             loading: true,
-            filtering: false
+            filtering: false,
         };
     }
 
@@ -94,8 +94,27 @@ class ProductsList extends React.Component {
     loadProducts = () => {
         this.setState({filtering: true});
 
+        let state = this.state;
+
+        let productsListState = sessionStorage.getItem('productsListState');
+
+        if (productsListState === null) {
+
+            sessionStorage.setItem('firstTimeProductsLoad', true);
+
+        } else {
+
+            let parsedState = JSON.parse(productsListState);
+
+            for (let event in parsedState) {
+
+                this.setState({[event]: parsedState[event]});
+
+            }
+        }
+
         productsService
-            .loadProducts(this.state)
+            .loadProducts(state)
             .then(res => {
 
                 res.products.forEach(e => e.images.reverse());
@@ -113,11 +132,21 @@ class ProductsList extends React.Component {
 
                 this.setState({categories, subcategories});
 
+                if (sessionStorage.getItem('firstTimeProductsLoad')) {
+
+                    let stringifiedState = JSON.stringify(this.state);
+
+                    sessionStorage.setItem('productsListState', stringifiedState);
+
+                    sessionStorage.setItem('firstTimeProductsLoad', false);
+                }
+
             })
             .catch(err => {
                 this.props.history.push('/error');
             });
-    };
+    }
+    ;
 
     selectFilterCategory = (e) => {
 
@@ -141,6 +170,9 @@ class ProductsList extends React.Component {
         }
 
         setTimeout(() => {
+
+            sessionStorage.setItem('productsListState', JSON.stringify(this.state));
+
             this.loadProducts();
         }, 2000)
     };
@@ -158,6 +190,7 @@ class ProductsList extends React.Component {
         let productsList = this.state.products.map(e => {
             return <ProductCard key={e.id}
                                 data={e}
+                                state={this.state}
                                 showOutOfStock={showOutOfStock}
                                 toastContainer={this.toastContainer}
                                 xsRes={resolution ? 12 : 6}/>;
@@ -207,34 +240,36 @@ class ProductsList extends React.Component {
                     className="toast-bottom-right"/>
 
 
-                    <Col xs={12} md={3} lg={2}>
-                        <aside>
-                            <div className="filters-container">
-                                <h4 className="category-name">{LABELS_BG.category}</h4>
-                                {categories}
-                            </div>
+                <Col xs={12} md={3} lg={2}>
+                    <aside>
+                        <div className="filters-container">
+                            <h4 className="category-name">{LABELS_BG.category}</h4>
+                            {categories}
+                        </div>
 
-                            <div className="filters-container">
-                                <h4 className="category-name">{LABELS_BG.subcategory}</h4>
-                                {subCategories}
-                            </div>
-                        </aside>
-                    </Col>
+                        <div className="filters-container">
+                            <h4 className="category-name">{LABELS_BG.subcategory}</h4>
+                            {subCategories}
+                        </div>
+                    </aside>
+                </Col>
 
 
-                    <Col xs={9}  md={9} lg={10}>
-                        <Row>
-                            {this.state.filtering &&
-                            <div className="loader"/>
-                            }
-                            {!this.state.filtering &&
-                            productsList
-                            }
-                        </Row>
-                    </Col>
+                <Col xs={9} md={9} lg={10}>
+                    <Row>
+                        {this.state.filtering &&
+                        <div className="loader"/>
+                        }
+                        {!this.state.filtering &&
+                        productsList
+                        }
+                    </Row>
+                </Col>
             </div>
         );
     }
 }
 
-export default ProductsList;
+export
+default
+ProductsList;

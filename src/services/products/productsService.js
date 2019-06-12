@@ -17,16 +17,16 @@ export default {
 		if(state.categories==null) state.categories= new FilterObject();
 		if(state.subcategories==null) state.subcategories= new FilterObject();
 
-		let query =
-			'?page=' + state.page +
-			'&size=' + state.size +
-			'&filterElement=' + state.filterProperty +
-			'&filterValue=' + state.filterValue +
-			'&sortElement=' + state.sortProperty +
-			'&sortDesc=' + state.descending +
-			'&includeBlocked=' + includeBlocked +
-			'&categoriesString=' + state.categories.selected.join(',') +
-			'&subcategoriesString=' + state.subcategories.selected.join(',');
+        let query  =
+            '?page=' + state.page +
+            '&size=' + state.size +
+            '&filterElement=' + state.filterProperty +
+            '&filterValue=' + state.filterValue +
+            '&sortElement=' + state.sortProperty +
+            '&sortDesc=' + state.descending +
+            '&includeBlocked=' + includeBlocked +
+            '&categoriesString=' + state.categories.selected.join(',') +
+            '&subcategoriesString=' + state.subcategories.selected.join(',');
 
 		return requesterService
 			.get(endPoint, null, query);

@@ -5,14 +5,33 @@ import {Link} from 'react-router-dom';
 
 
 import {PRODUCT, CURRENCY} from '../../../../../data/constants/componentConstants';
+import SortablePartners from "../../../../admin/partner/list/partials/SortablePartners";
 
 class ProductInfo extends React.Component {
     constructor(props) {
         super(props);
+
+
     }
 
     render() {
         const p = this.props.data;
+
+        let availableQuantity = p.quantity === 1 ?
+            <span className="stock-only-one-left">
+            остава само {p.quantity}
+            </span> :
+            <span className="stock-more-than-one-left">
+                {p.quantity}
+            </span>;
+
+        let stock = p.quantity === 0 ?
+            <span className="out-of-stock">
+                Изчерпан
+            </span> :
+            <span>
+                {availableQuantity}
+            </span>;
 
         return (
             <Row>
@@ -23,6 +42,8 @@ class ProductInfo extends React.Component {
                         }
                         {p.name}<Badge color="info">{'# 1' + ('' + p.number).padStart(5, '0')}</Badge>
                     </PageHeader>
+                    <div>Наличност: {stock}</div>
+                    <br/>
                     <p>{p.description}</p>
 
 
@@ -46,6 +67,8 @@ class ProductInfo extends React.Component {
 
 
                 </Col>
+
+
             </Row>
         );
     }
