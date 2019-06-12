@@ -65,6 +65,8 @@ class ProductCard extends React.Component {
     render() {
         const p = this.props.data;
 
+        const productsListState = this.props.state;
+
         let showOutOfStockSetting = this.props.showOutOfStock;
         let showOutOfStockLabel = p.quantity <= 0 && showOutOfStockSetting;
 
@@ -92,7 +94,7 @@ class ProductCard extends React.Component {
                         <p className="item-number">{'# 1' + ('' + p.number).padStart(5, '0')}</p>
 
                         {showOutOfStockLabel && p.quantity <= 0 &&
-                        <p className="price">Изчерпан</p>}
+                        <p className="out-of-stock-label">ИЗЧЕРПАН</p>}
 
                         {!showOutOfStockLabel && p.discount === 0 &&
                         <p className="price">{p.price.toFixed(2)} {CURRENCY}</p>}

@@ -705,18 +705,12 @@ nav {
   .card-body {
     width: 100%;
     padding: 5px 5px 15px 5px;
-
-    .out-of-stock-label {
-      background-color: red;
-      margin: 10px 0 20px 0;
-      padding: 2px 10px 2px 10px;
-    }
   }
 
   .card-title {
     font-size: 1.1em;
     line-height: 1.1em;
-    min-height: 2.1em;
+    min-height: 4em;
   }
 
   .item-number {
@@ -745,6 +739,14 @@ nav {
     padding: 5px 10px;
     font-weight: 400;
     color: $primary;
+    font-size: 1.35em;
+    @include transition;
+  }
+
+  .out-of-stock-label {
+    padding: 5px 10px;
+    font-weight: 400;
+    background-color: forestgreen;
     font-size: 1.35em;
     @include transition;
   }
@@ -936,6 +938,25 @@ nav {
 //User Product Details
 #product {
   position: relative;
+
+  .productInfo-backButton{
+    margin-top: 5rem;
+
+  }
+
+  .stock-only-one-left{
+    color: red;
+    font-weight: 600;
+  }
+
+  .stock-more-than-one-left{
+    font-weight: 600;
+  }
+
+  .out-of-stock{
+    color: $green-line;
+    font-weight: 600;
+  }
 
   .promo-label {
     position: absolute;

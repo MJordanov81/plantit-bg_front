@@ -12,7 +12,7 @@ export default {
 
     getCurrentSetting: (settingName) => {
 
-        var apiSettings = JSON.parse(sessionStorage.getItem('apiSettings'));
+        let apiSettings = JSON.parse(sessionStorage.getItem('apiSettings'));
 
         return apiSettings[settingName];
     },

@@ -45,7 +45,7 @@ export default {
                 headers: createHeader(auth),
 
             }).done(function(response, textStatus, xhr){
-            var settingsHeader = xhr.getResponseHeader("ApiSettings");
+            let settingsHeader = xhr.getResponseHeader("ApiSettings");
 
             sessionStorage.setItem('apiSettings', settingsHeader);
         });
