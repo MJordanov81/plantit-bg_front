@@ -51,13 +51,14 @@ class ProductsList extends React.Component {
     }
 
     componentDidMount() {
+
         window.scrollTo(0, 0);
         window.addEventListener('orientationchange', this.handleResolutionChange);
         window.addEventListener('resize', this.handleResolutionChange);
 
-        this.loadProducts();
-
         this.loadCategories();
+
+        this.loadProducts();
     }
 
     componentWillUnmount() {
@@ -94,6 +95,8 @@ class ProductsList extends React.Component {
     loadProducts = () => {
         this.setState({filtering: true});
 
+        this.setState({loading: true});
+
         let state = this.state;
 
         let productsListState = sessionStorage.getItem('productsListState');
@@ -108,6 +111,10 @@ class ProductsList extends React.Component {
 
             for (let event in parsedState) {
 
+
+                parsedState['loading'] = true;
+
+
                 this.setState({[event]: parsedState[event]});
 
             }
@@ -120,7 +127,6 @@ class ProductsList extends React.Component {
                 res.products.forEach(e => e.images.reverse());
                 this.setState({
                     products: res.products,
-                    loading: false,
                     filtering: false
                 });
 
@@ -140,6 +146,8 @@ class ProductsList extends React.Component {
 
                     sessionStorage.setItem('firstTimeProductsLoad', false);
                 }
+
+                setTimeout(() => this.setState({'loading': false}), 600)
 
             })
             .catch(err => {
@@ -179,6 +187,8 @@ class ProductsList extends React.Component {
 
 
     render() {
+
+        const {isFetching} = this.state.loading;
 
         let showOutOfStock = settingsService.getCurrentSetting('ShowOutOfStock');
 
@@ -255,6 +265,8 @@ class ProductsList extends React.Component {
                 </Col>
 
 
+                {isFetching ? <div>Loading...</div> :
+
                 <Col xs={9} md={9} lg={10}>
                     <Row>
                         {this.state.filtering &&
@@ -264,7 +276,7 @@ class ProductsList extends React.Component {
                         productsList
                         }
                     </Row>
-                </Col>
+                </Col>}
             </div>
         );
     }

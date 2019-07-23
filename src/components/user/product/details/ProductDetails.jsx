@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Grid, Row, Col, Image, PageHeader} from 'react-bootstrap';
+import {Grid, Row, Col, Image, PageHeader, Button} from 'react-bootstrap';
 import {ToastContainer} from 'react-toastr';
 import {Link} from 'react-router-dom'
 
@@ -98,6 +98,13 @@ class Product extends React.Component {
         this.setState({resolution: window.innerWidth})
     };
 
+    goBack = (event) => {
+
+        event.preventDefault()
+        //redirect back
+        this.props.history.go(-1);
+    };
+
     render() {
         let product = this.state.product;
         let resolution = this.state.resolution < RESOLUTIONS.xs;
@@ -113,7 +120,7 @@ class Product extends React.Component {
                     className="toast-bottom-right"
                 />
 
-                {this.state.product === '' && <div className="loader"/> }
+                {this.state.product === '' && <div className="loader"/>}
 
                 {this.state.product !== '' &&
                 <Row>
@@ -133,13 +140,16 @@ class Product extends React.Component {
 
                 <Row className="productInfo-backButton">
                     <Col xs={resolution ? 12 : 6} sm={6} md={5}>
-                        <Link to='/products'>
-							<span className="btn-custom default lg">
-								Назад
-							</span>
-                        </Link>
+                        <Button onClick={this.goBack} className="btn-custom default lg">
+                            Назад
+                        </Button>
+                        {product.detailsLink &&
+                        <Link to={product.detailsLink}>
+                            <span className="btn-custom btn-product-details lg">
+                                Статия
+                            </span>
+                        </Link>}
                     </Col>
-
                 </Row>
             </Grid>
         );
