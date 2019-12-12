@@ -366,6 +366,11 @@
       margin-right: 10px;
     }
   }
+
+  #news-container .news-card .news-content-brief {
+
+    display: none;
+  }
 }
 
 @media screen and (max-width: 650px) {
@@ -544,9 +549,15 @@
 
   #news-container .news-card {
     flex-direction: column;
+    height: 450px;
 
     .news-image-container {
-      height: 425px;
+      flex-basis: 70%;
+    }
+
+    .news-body {
+      height: 10rem !important;
+      flex-basis: 30%;
     }
   }
 }

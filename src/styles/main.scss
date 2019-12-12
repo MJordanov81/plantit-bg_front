@@ -153,11 +153,9 @@ input[type=checkbox], input[type=radio] {
 
   &.btn-product-details {
     background-color: $green-line;
-    color: $default;
-    padding: 10px 15px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    border-radius: 15px;
+    color: $white;
+    border-radius: 5px;
+    margin-left: 1rem;
 
     &:hover {
       @include transition;
@@ -800,8 +798,13 @@ nav {
 
   .news-card {
     @include flex;
-    margin-bottom: 15px;
+    margin-bottom: 40px;
     @include transition;
+    padding: 10px;
+    border-bottom: 1px solid $default;
+    height: 25rem;
+    overflow: hidden;
+
 
     &:hover {
       .news-body {
@@ -809,6 +812,11 @@ nav {
       }
     }
 
+
+    .news-content-brief{
+      display: inline-block;
+      font-size: 1.5rem;
+    }
 
     .news-image-container {
       @include flex-basis(30%);
@@ -828,7 +836,7 @@ nav {
       padding: 5px 15px;
 
       .news-title {
-        font-size: 1em;
+        font-size: 1.9em;
         line-height: 1.3em;
       }
 
@@ -944,18 +952,29 @@ nav {
 
   }
 
-  .stock-only-one-left{
-    color: red;
-    font-weight: 600;
+  h1{
+    margin-bottom: 10px;
   }
 
-  .stock-more-than-one-left{
-    font-weight: 600;
-  }
+  .stock-label{
 
-  .out-of-stock{
-    color: $green-line;
-    font-weight: 600;
+    margin-top: 1.3rem;
+    font-size: 1.8rem;
+    font-style: italic;
+
+    .stock-only-one-left{
+      color: red;
+      font-weight: 600;
+    }
+
+    .stock-more-than-one-left{
+      font-weight: 600;
+    }
+
+    .out-of-stock{
+      color: $green-line;
+      font-weight: 600;
+    }
   }
 
   .promo-label {

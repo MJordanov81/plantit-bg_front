@@ -41,18 +41,10 @@ class ProductInfo extends React.Component {
                         <span className="promo-label">-{p.discount}%</span>
                         }
                         {p.name}<Badge color="info">{'# 1' + ('' + p.number).padStart(5, '0')}</Badge>
+                        <div className='stock-label'>Наличност: {stock}</div>
                     </PageHeader>
-                    <div>Наличност: {stock}</div>
                     <br/>
                     <p>{p.description}</p>
-
-
-                    {p.detailsLink &&
-                    <Link to={p.detailsLink}>
-                        <div className="btn-custom btn-product-details">
-                            Детайли за продукта
-                        </div>
-                    </Link>}
 
                     {p.discount === 0 &&
                     <p>{PRODUCT.price} <span className="price">{p.price.toFixed(2)} {CURRENCY}</span></p>}

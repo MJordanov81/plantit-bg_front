@@ -58,6 +58,10 @@ class NewsBrief extends React.Component {
 		let isAdmin = sessionStorage.getItem('role') === 'admin';
 		let date = this.news.creationDate;
 
+		let shortContent = this.news.content.substring(0, 250).trim() + '&#187;';
+
+		shortContent  = <span dangerouslySetInnerHTML={{ __html: shortContent }}></span>;
+
 		return (
 
 			<Link to={'/news/' + this.news.id}>
@@ -75,6 +79,9 @@ class NewsBrief extends React.Component {
 							<span className="month">{Utils.getMonth(date)} &nbsp;</span>
 							<span className="year">{Utils.getYear(date)}</span>
 						</p>
+						<div className="news-content-brief">
+							{shortContent}
+						</div>
 					</div>
 
 					{isAdmin &&

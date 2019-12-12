@@ -14,7 +14,13 @@ export default {
 
         let apiSettings = JSON.parse(sessionStorage.getItem('apiSettings'));
 
-        return apiSettings[settingName];
+        let setting;
+
+        if(apiSettings){
+            setting = apiSettings[settingName];
+        }
+
+        return setting;
     },
 
     edit: (state) => {
